@@ -4,7 +4,7 @@
 
 📌 **Quick links:** [Project Background](#project-background) · [Data Structure](#data-structure--initial-checks) · [Executive Summary](#executive-summary) · [Insights Deep Dive](#insights-deep-dive) · [Recommendations](#recommendations) · [Assumptions & Caveats](#assumptions-and-caveats) · [Technical Resources](#technical-resources)
 
-![Executive Summary Dashboard](dashboard/screenshots/page2_executive_summary.png,png)
+![Executive Summary Dashboard](dashboard/screenshots/page2_executive_summary.png.png)
 
 ---
 
@@ -135,7 +135,7 @@ Throughout the analysis, several assumptions were made to manage real limitation
 
 - **A synthetic data generation artifact was identified** in the source dataset — an anomalous spike in new account creation over a narrow date range, inconsistent with any real business event. This is logged as a risk in the BRD; figures for the affected period are treated as directional rather than precise.
 
-- **Row-level security is implemented and testable** via Power BI Desktop's "View As Roles" feature, restricting individual customer-level data to Marketing/Admin roles while Leadership sees segment-level summaries only. Full login-based enforcement would require publishing to Power BI Service, which was outside this project's environment — see the [RLS demo screenshot](dashboard/screenshots/rls_demo.png.png) for a before/after comparison.
+- **Row-level security is implemented and testable** via Power BI Desktop's "View As Roles" feature, restricting individual customer-level data to Marketing/Admin roles while Leadership sees segment-level summaries only. Full login-based enforcement would require publishing to Power BI Service, which was outside this project's environment — see the ![RLS demo screenshot](dashboard/screenshots/rls_demo.png.png) for a before/after comparison.
 
 ---
 
