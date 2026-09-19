@@ -4,7 +4,7 @@
 
 📌 **Quick links:** [Project Background](#project-background) · [Data Structure](#data-structure--initial-checks) · [Executive Summary](#executive-summary) · [Insights Deep Dive](#insights-deep-dive) · [Recommendations](#recommendations) · [Assumptions & Caveats](#assumptions-and-caveats) · [Technical Resources](#technical-resources)
 
-![Executive Summary Dashboard](dashboard/screenshots/page2_executive_summary.png.png)
+![Executive Summary Dashboard](dashboard/screenshots/page2_executive_summary.png,png)
 
 ---
 
@@ -38,6 +38,45 @@ The underlying dataset (The Look E-Commerce, apparel/lifestyle retail) consists 
 Two additional tables in the source dataset (`inventory_items`, `events`) were deliberately excluded — product-category detail wasn't relevant to the stakeholder's budget-allocation question, and behavioral/session data was explicitly out of scope per the BRD.
 
 Three supporting objects were built to support the analysis: a `CalendarTable` (date dimension), a segment-monthly cumulative customer bridge view, and a simulated marketing spend table (see [Assumptions & Caveats](#assumptions-and-caveats)). Full detail on each is in the [methodology notes](docs/methodology_notes.md.md).
+
+The final model built for the dashboard is a star schema: a `cust_segments` dimension table feeding two fact tables — one at customer grain (`gold_cust_segmentation`, powering the segmentation page) and one at segment-month grain (`vw_SegmentSpendVsRevenue`, powering the executive summary page), with a shared `CalendarTable` supporting date-based filtering.
+
+```mermaid
+erDiagram
+  CUST_SEGMENTS ||--o{ GOLD_CUST_SEGMENTATION : classifies
+  CUST_SEGMENTS ||--o{ VW_SEGMENT_SPEND_VS_REVENUE : classifies
+  CALENDAR_TABLE ||--o{ VW_SEGMENT_SPEND_VS_REVENUE : dates
+
+  CUST_SEGMENTS {
+    string segments PK
+    int SK
+  }
+  GOLD_CUST_SEGMENTATION {
+    int user_id PK
+    int recency
+    int frequency
+    decimal monetary
+    int r_score
+    int f_score
+    int m_score
+    string segments FK
+  }
+  VW_SEGMENT_SPEND_VS_REVENUE {
+    date the_date PK
+    int year
+    int month_number
+    string segments FK
+    decimal segment_spend
+    decimal segment_revenue
+    decimal segment_share
+  }
+  CALENDAR_TABLE {
+    date the_date PK
+    int year
+    int month_number
+    int quarter
+  }
+```
 
 # Executive Summary
 
@@ -96,7 +135,7 @@ Throughout the analysis, several assumptions were made to manage real limitation
 
 - **A synthetic data generation artifact was identified** in the source dataset — an anomalous spike in new account creation over a narrow date range, inconsistent with any real business event. This is logged as a risk in the BRD; figures for the affected period are treated as directional rather than precise.
 
-- **Row-level security is implemented and testable** via Power BI Desktop's "View As Roles" feature, restricting individual customer-level data to Marketing/Admin roles while Leadership sees segment-level summaries only. Full login-based enforcement would require publishing to Power BI Service, which was outside this project's environment — see the ![RLS demo screenshot](dashboard/screenshots/rls_demo.png.png) for a before/after comparison.
+- **Row-level security is implemented and testable** via Power BI Desktop's "View As Roles" feature, restricting individual customer-level data to Marketing/Admin roles while Leadership sees segment-level summaries only. Full login-based enforcement would require publishing to Power BI Service, which was outside this project's environment — see the [RLS demo screenshot](dashboard/screenshots/rls_demo.png.png) for a before/after comparison.
 
 ---
 
@@ -105,7 +144,7 @@ Throughout the analysis, several assumptions were made to manage real limitation
 | | |
 |---|---|
 | 📄 Business Requirements Document | [docs/BRD_v1.2.docx](docs/BRD_v1.2.docx.docx) |
-| 🧠 Methodology Notes | [docs/methodology_notes.md](docs/methodology_notes.md.md) |
+| 🧠 Methodology Notes | [docs/methodology_notes](docs/methodology_notes.md.md) |
 | 🗄️ SQL Scripts | [sql/](sql/) |
 | 📊 Dashboard File | [dashboard/Budget_Allocation_Dashboard.pbix](dashboard/Budget_Allocation_Dashboard.pbix.pbix) |
 | 🔒 RLS Demo | [dashboard/screenshots/rls_demo.png](dashboard/screenshots/rls_demo.png.png) |
