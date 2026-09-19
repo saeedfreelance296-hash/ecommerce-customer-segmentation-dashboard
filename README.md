@@ -4,7 +4,7 @@
 
 📌 **Quick links:** [Project Background](#project-background) · [Data Structure](#data-structure--initial-checks) · [Executive Summary](#executive-summary) · [Insights Deep Dive](#insights-deep-dive) · [Recommendations](#recommendations) · [Assumptions & Caveats](#assumptions-and-caveats) · [Technical Resources](#technical-resources)
 
-![Executive Summary Dashboard](dashboard/screenshots/page2_executive_summary.png)
+![Executive Summary Dashboard](dashboard/Executive Summary view.png)
 
 ---
 
