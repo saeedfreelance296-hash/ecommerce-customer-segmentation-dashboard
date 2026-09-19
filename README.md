@@ -12,7 +12,7 @@
 
 A mid-sized e-commerce retailer specializing in apparel and lifestyle goods was sending identical email campaigns, at identical frequency, to its entire customer base — regardless of whether a customer had ordered once or ten times. There was no segmentation strategy, no visibility into which customers were driving returns on that spend, and no data-backed way to defend the marketing budget when leadership asked for justification at quarterly review.
 
-This project was scoped and built the way a real BI engagement would be: starting with a full stakeholder requirements conversation (playing both analyst and Head of Marketing) to define the actual business decision at stake, before any data was touched. That conversation produced a signed-off [Business Requirements Document](docs/BRD_v1.2.docx).
+This project was scoped and built the way a real BI engagement would be: starting with a full stakeholder requirements conversation (playing both analyst and Head of Marketing) to define the actual business decision at stake, before any data was touched. That conversation produced a signed-off [Business Requirements Document](docs/BRD_v1.2.docx.docx).
 
 Insights and recommendations are provided on the following key areas:
 
