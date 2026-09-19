@@ -23,9 +23,9 @@ Insights and recommendations are provided on the following key areas:
 
 The SQL queries used to build and validate the RFM segmentation, calendar table, and marketing spend simulation can be found [here](sql/).
 
-The full technical methodology — dataset sourcing, segmentation logic, spend model, and documented data-quality findings — can be found [here](docs/methodology_notes.md).
+The full technical methodology — dataset sourcing, segmentation logic, spend model, and documented data-quality findings — can be found [here](docs/methodology_notes.md.md).
 
-An interactive Power BI dashboard used to report and explore segment performance can be found [here](dashboard/Budget_Allocation_Dashboard.pbix).
+An interactive Power BI dashboard used to report and explore segment performance can be found [here](dashboard/Budget_Allocation_Dashboard.pbix.pbix).
 
 # Data Structure & Initial Checks
 
