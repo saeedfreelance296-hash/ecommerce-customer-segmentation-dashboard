@@ -45,7 +45,7 @@ Three supporting objects were built to support the analysis: a `CalendarTable` (
 
 If leadership were to take away three things from this project: **(1)** nearly 7 in 10 customers have ordered only once, and this segment absorbs the largest share of a budget that's currently spent the same way on everyone; **(2)** that same segment is also the single highest-revenue group in the business, so the answer was never to cut their spend; **(3)** the real gap is efficiency, not volume — loyal customers return roughly 5x more revenue per marketing dollar than one-time buyers, because they receive no differentiated engagement strategy.
 
-![Customer Segmentation Dashboard](dashboard/Customer_Segmentation.png.png)
+![Customer Segmentation Dashboard](dashboard/screenshots/page1_customer_segmentation.png.png)
 
 # Insights Deep Dive
 
@@ -96,7 +96,7 @@ Throughout the analysis, several assumptions were made to manage real limitation
 
 - **A synthetic data generation artifact was identified** in the source dataset — an anomalous spike in new account creation over a narrow date range, inconsistent with any real business event. This is logged as a risk in the BRD; figures for the affected period are treated as directional rather than precise.
 
-- **Row-level security is implemented and testable** via Power BI Desktop's "View As Roles" feature, restricting individual customer-level data to Marketing/Admin roles while Leadership sees segment-level summaries only. Full login-based enforcement would require publishing to Power BI Service, which was outside this project's environment — see the [RLS demo screenshot](dashboard/screenshots/rls_demo.png.png) for a before/after comparison.
+- **Row-level security is implemented and testable** via Power BI Desktop's "View As Roles" feature, restricting individual customer-level data to Marketing/Admin roles while Leadership sees segment-level summaries only. Full login-based enforcement would require publishing to Power BI Service, which was outside this project's environment — see the ![RLS demo screenshot](dashboard/screenshots/rls_demo.png.png) for a before/after comparison.
 
 ---
 
