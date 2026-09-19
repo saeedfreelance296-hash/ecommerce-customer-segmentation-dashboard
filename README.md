@@ -37,7 +37,7 @@ The underlying dataset (The Look E-Commerce, apparel/lifestyle retail) consists 
 
 Two additional tables in the source dataset (`inventory_items`, `events`) were deliberately excluded — product-category detail wasn't relevant to the stakeholder's budget-allocation question, and behavioral/session data was explicitly out of scope per the BRD.
 
-Three supporting objects were built to support the analysis: a `CalendarTable` (date dimension), a segment-monthly cumulative customer bridge view, and a simulated marketing spend table (see [Assumptions & Caveats](#assumptions-and-caveats)). Full detail on each is in the [methodology notes](docs/methodology_notes.md).
+Three supporting objects were built to support the analysis: a `CalendarTable` (date dimension), a segment-monthly cumulative customer bridge view, and a simulated marketing spend table (see [Assumptions & Caveats](#assumptions-and-caveats)). Full detail on each is in the [methodology notes](docs/methodology_notes.md.md).
 
 # Executive Summary
 
@@ -45,7 +45,7 @@ Three supporting objects were built to support the analysis: a `CalendarTable` (
 
 If leadership were to take away three things from this project: **(1)** nearly 7 in 10 customers have ordered only once, and this segment absorbs the largest share of a budget that's currently spent the same way on everyone; **(2)** that same segment is also the single highest-revenue group in the business, so the answer was never to cut their spend; **(3)** the real gap is efficiency, not volume — loyal customers return roughly 5x more revenue per marketing dollar than one-time buyers, because they receive no differentiated engagement strategy.
 
-![Customer Segmentation Dashboard](dashboard/Customer_Segmentation.png)
+![Customer Segmentation Dashboard](dashboard/Customer_Segmentation.png.png)
 
 # Insights Deep Dive
 
@@ -59,7 +59,7 @@ If leadership were to take away three things from this project: **(1)** nearly 7
 ### Marketing Spend Allocation
 
 - **One-Time buyers absorb more email spend than every other segment combined** — despite receiving no strategy differentiated from any other group.
-- Spend was modeled from researched email service provider (ESP) pricing, scaled to the size of the customer base as it grew over the 2-year window — not an arbitrary flat figure. Full methodology [here](docs/methodology_notes.md).
+- Spend was modeled from researched email service provider (ESP) pricing, scaled to the size of the customer base as it grew over the 2-year window — not an arbitrary flat figure. Full methodology [here](docs/methodology_notes.md.md).
 - Because every customer has historically received identical treatment, spend allocation directly mirrors segment size, not segment value.
 
 ### Revenue Performance by Segment
@@ -96,7 +96,7 @@ Throughout the analysis, several assumptions were made to manage real limitation
 
 - **A synthetic data generation artifact was identified** in the source dataset — an anomalous spike in new account creation over a narrow date range, inconsistent with any real business event. This is logged as a risk in the BRD; figures for the affected period are treated as directional rather than precise.
 
-- **Row-level security is implemented and testable** via Power BI Desktop's "View As Roles" feature, restricting individual customer-level data to Marketing/Admin roles while Leadership sees segment-level summaries only. Full login-based enforcement would require publishing to Power BI Service, which was outside this project's environment — see the [RLS demo screenshot](dashboard/screenshots/rls_demo.png) for a before/after comparison.
+- **Row-level security is implemented and testable** via Power BI Desktop's "View As Roles" feature, restricting individual customer-level data to Marketing/Admin roles while Leadership sees segment-level summaries only. Full login-based enforcement would require publishing to Power BI Service, which was outside this project's environment — see the [RLS demo screenshot](dashboard/screenshots/rls_demo.png.png) for a before/after comparison.
 
 ---
 
@@ -104,11 +104,11 @@ Throughout the analysis, several assumptions were made to manage real limitation
 
 | | |
 |---|---|
-| 📄 Business Requirements Document | [docs/BRD_v1.2.docx](docs/BRD_v1.2.docx) |
-| 🧠 Methodology Notes | [docs/methodology_notes.md](docs/methodology_notes.md) |
+| 📄 Business Requirements Document | [docs/BRD_v1.2.docx](docs/BRD_v1.2.docx.docx) |
+| 🧠 Methodology Notes | [docs/methodology_notes.md](docs/methodology_notes.md.md) |
 | 🗄️ SQL Scripts | [sql/](sql/) |
-| 📊 Dashboard File | [dashboard/Budget_Allocation_Dashboard.pbix](dashboard/Budget_Allocation_Dashboard.pbix) |
-| 🔒 RLS Demo | [dashboard/screenshots/rls_demo.png](dashboard/screenshots/rls_demo.png) |
+| 📊 Dashboard File | [dashboard/Budget_Allocation_Dashboard.pbix](dashboard/Budget_Allocation_Dashboard.pbix.pbix) |
+| 🔒 RLS Demo | [dashboard/screenshots/rls_demo.png](dashboard/screenshots/rls_demo.png.png) |
 
 ## Project Structure
 
